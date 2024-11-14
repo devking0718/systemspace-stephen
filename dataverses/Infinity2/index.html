@@ -1,0 +1,398 @@
+
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from classic.systemspace.network/dataverses/Infinity2/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Oct 2024 00:50:59 GMT -->
+<head>
+<title>DATAVERSES</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../res/img/icons/apple-touch-icon.html">
+<link rel="icon" type="image/png" href="../../res/img/icons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="../../res/img/icons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="../../res/manifest.json">
+<link rel="mask-icon" href="../../res/img/icons/safari-pinned-tab.html" color="#000000">
+<link rel="shortcut icon" href="../../res/img/icons/favicon.ico">
+<meta name="msapplication-config" content="../../res/browserconfig.html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../res/css/reset.css"><link rel="stylesheet" href="../../res/css/common.css"><link rel="stylesheet" href="../../res/css/scanlines.css"><script src="../../res/js/jquery.js"></script><script src="../../res/js/howler.js"></script>
+<script>
+		document.addEventListener("DOMContentLoaded", function(event) { 
+			var noise = new Howl({
+				src: ["/res/audio/ambience/d9.ogg"],
+				loop: true,
+				volume: 0.5
+			});
+			window.addEventListener("load", function(event) {
+				noise.play();
+			});
+		});
+	</script>
+<style>
+		.post {
+			border: 1px solid #FFF;
+			box-shadow: 6px 6px #FFF;
+			background-color: #222;
+		}
+
+		.post h6 {
+			margin: 0;
+		}
+	</style>
+</head>
+<body>
+<div id="contentloader">
+<img id="loadtsuki" src="../../res/img/loader/loadtsuki.png" />
+<img id="loadspin" src="../../res/img/loader/loadspin.png" />
+</div>
+<style>
+	#contentloader {
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #000;
+		z-index: 10000;
+		transition: 0.2s;
+	}
+
+	#loadtsuki {
+		position: absolute;
+		left: calc(50% - 48px);
+		top: calc(50% - 48px);
+	}
+
+	#loadspin {
+		position: absolute;
+		left: calc(50% - 46px);
+		top: calc(50% - 47px);
+		animation: LoaderSpin 2s infinite linear;
+	}
+
+	@keyframes LoaderSpin {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+
+	.destroyedloader {
+		opacity: 0;
+		pointer-events: none;
+		transition: 0.5s !important;	
+	}
+
+	.destroyedloader #loadtsuki {
+		top: calc(50% - 100px);
+		transition: 0.5s ease-in !important;
+	}
+
+	.destroyedloader #loadspin {
+		top: calc(50% - 100px);
+		transition: 0.5s ease-in !important;
+	}
+</style>
+<script>
+	window.addEventListener("load", function(event) {
+		document.getElementById("contentloader").className = "destroyedloader";
+		document.getElementById("loadspin").src = "../../res/img/loader/loadfinish.png";
+	});
+	
+	window.onbeforeunload = function() {
+		document.getElementById("contentloader").classList.remove("destroyedloader");
+		document.getElementById("loadspin").src = "../../res/img/loader/loadspin.png";
+	}
+</script>
+<div id="header">
+<div id="headerbar">
+<a href="../../status-2.html"><img id="headerstatus" src="../../res/img/headerbar/status-ok.png"></a> <img id="headerfade_left" src="../../res/img/headerbar/fade-left.png">
+<marquee truespeed scrolldelay="30" scrollamount="3" id="headernews">
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+	<p>Welcome to the TSUKI project's homepage</p>
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+	<p style="color: lime">Registrations open</p>
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+	<p style="color: lime">Gates open</p>
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+	<p>4969 users registered</p>
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+	<p>Latest news: &quot;Object assignment&quot;</p>
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+	<p>Life is linked.</p>
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+</marquee>
+</div>
+<a href="../../index.html"><img id="knob" src="../../res/img/headerbar/knobs/tsuki_knob.png" /></a>
+<a href="https://systemspace.link/"><img id="knob4" src="../../res/img/headerbar/knobs/officialknob.png" /></a>
+<a href="../../login-2.html"><img id="knob5" src="../../res/img/headerbar/knobs/loginknob.png" /></a>
+<a href="../../preferences-2.html"><img id="knob2" src="../../res/img/headerbar/knobs/prefsknob.png" /></a>
+</div>
+<style>
+	#header {
+		position: relative;
+		z-index: 1;
+	}
+
+	#headerbar {
+		position: fixed;
+		width: 100%;
+		left: 0;
+		top: 0;
+		height: 20px;
+		background-color: #000;
+		box-shadow: 0px 1px #FFF, 0px 2px #000;
+	}
+
+	#headerstatus {
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: 1;
+	}
+
+	#headerfade_left {
+		position: fixed;
+		left: 150px;
+		top: 0px;
+		z-index: 1;
+	}
+
+	#headernews {
+		width: 100%;
+		font-family: Heading;
+		font-size: 16px;
+		letter-spacing: -4px;
+	}
+
+	#headernews p {
+		display: inline;
+		position: relative;
+		top: -2px;
+	}
+
+	#knob {
+		position: fixed;
+		left: 0;
+		top: 20px;
+	}
+
+	#knob2 {
+		position: fixed;
+		right: 0;
+		top: 20px;
+	}
+
+	#knob3 {
+		position: fixed;
+		right: 100px;
+		top: 20px;
+	}
+
+	#knob4 {
+		position: fixed;
+		left: 200px;
+		top: 20px;
+	}
+
+	#knob5 {
+		position: fixed;
+		left: 350px;
+		top: 20px;
+	}
+
+	#knob6 {
+		position: fixed;
+		left: 460px;
+		top: 20px;
+	}
+
+	#knob7 {
+		position: fixed;
+		left: 492px;
+		top: 20px;
+	}
+</style>
+<div id="index" class="dataverses">
+<div class="overload">
+<center>
+<span>
+<div>
+<br>
+<a href="../index.html"><h1>DATAVERSES</h1></a>
+<a href="../../index.html"><h6>back to TSUKI</h6></a>
+</div>
+</span>
+</center>
+<hr>
+<center>
+<a href="../index.html">One up</a>
+<br><br>
+</center>
+</div>
+</div>
+<div class="seperator"></div><div class="padded seethru">
+<br><br>
+<h2>Infinity II</h2>
+<p>This is a translated conversation from Infinity, a spanning System used for people of all non-blocking Systems to communicate. This is only an excerpt, and their culture has been translated to be like ours.</p>
+<div class="post">
+<h3>Official Life-&gt;LFE transfer thread</h3>
+<p>Good afternoon Infinity!
+<br>After a new batch of visitors, we now have just over 1100 registrants.
+<br>Info here o-- shosha.tsuki
+<br>Site that the registrants see o-- dyiri.shosha.tsuki (use an HTML-capable browser and your best English dictionary, this proxy does not translate)
+</p>
+</div>
+<br>
+<div class="post">
+<p>DAILY REMINDER THAT THE HUMANS ARE STARTING ANOTHER WAR</p>
+</div>
+<br>
+<div class="post">
+<p>why even help these guys LOL</p>
+</div>
+<br>
+<div class="post">
+<p>THEY'RE STARTING A WAR
+<br>**THEY'RE STARTING A WAR**
+<br>THEY'RE STARTING A WAR
+<br>**THEY'RE STARTING A WAR**
+<br>THEY'RE STARTING A WAR
+<br>**THEY'RE STARTING A WAR**
+<br>THEY'RE STARTING A WAR
+<br>**THEY'RE STARTING A WAR**
+<br>THEY'RE STARTING A WAR
+<br>**THEY'RE STARTING A WAR**
+<br>
+<br>LOOOOOOOOOOOOOOOOOOOOOOOOOOOOL
+</p>
+</div>
+<br>
+<div class="post">
+<p>I swear, these humans are stupid</p>
+</div>
+<br>
+<div class="post">
+<p>shatter yourself with this project</p>
+</div>
+<br>
+<div class="post">
+<p>Hyakanghen here, I'd like an honest answer from you tsukiRep. Why bring over these humans, riddled with diseases and war, and even allow a false vacuum disruption??? What are you thinking?????</p>
+</div>
+<br>
+<div class="post">
+<p>what the fcuk LOL</p>
+</div>
+<br>
+<div class="post">
+<p>what's all this war shit, someone can enlighten me?</p>
+</div>
+<br>
+<div class="post">
+<p>The fuckheads in the Europe region are poking at each other, war is to happen any time soon</p>
+</div>
+<br>
+<div class="post">
+<p>wait, wouldn't tsukiRep have to join the military then, as human?</p>
+</div>
+<br>
+<div class="post">
+<p>heh, he can always talk himself outta that by naming himself psychotic as he's been doing</p>
+</div>
+<br>
+<div class="post">
+<p>(´・ω・｀) 50 points to humanity for this one</p>
+</div>
+<br>
+<div class="post">
+<p>Can we just fuck off about this already??</p>
+</div>
+<br>
+<div class="post">
+<p>@Hyakanghen
+<br>As you can tell, they're rather interesting beings.</p>
+</div>
+<br>
+<div class="post">
+<p>tsuKIREP WHERE IS MY QT HUMAN (human) ITS BEEN WEEKS WITHOUT REPLY FROM YOU ANSWER ME</p>
+</div>
+<br>
+<div class="post">
+<p>oh what the fuck</p>
+</div>
+<br>
+<div class="post">
+<p>HAHAHHAHAHHAHAHHAHHAHAHHAAHHAAHAHHAHAHAHAAHAHHAHAHAHAHAH</p>
+</div>
+<br>
+<div class="post">
+<p>&lt;this post was just a link to 7 million people laughing at once&gt;</p>
+</div>
+<br>
+<div class="post">
+<p>I swear humans are a meme created by TSUKI</p>
+</div>
+<br>
+<div class="post">
+<p>@tsukiRep
+<br>So you're implying they're worth more than all of us by putting us in danger for these creatures??</p>
+</div>
+<br>
+<div class="post">
+<p>LOOL</p>
+</div>
+<br>
+<div class="post">
+<p>@Hyakanghen @tsukiRep Yeah, what the fuck? How are they worth more?</p>
+</div>
+<br>
+<div class="post">
+<p>THEY KNOW ABOUT US
+<br>
+<br>dyiri.shosha.tsuki:boards&lt;lfe&lt;res&lt;702.html
+<br>dyiri.shosha.tsuki:boards&lt;lfe&lt;res&lt;666.html
+<br>dyiri.shosha.tsuki:boards&lt;lfe&lt;res&lt;669.html
+<br>
+<br>Apparently tsukiRep translated one of our threads at dyiri.shosha.tsuki&lt;dataverses&lt;Infinity
+</p>
+</div>
+<br>
+<div class="post">
+<p>Still no official stance about the Hyakanghen?</p>
+</div>
+<br>
+<div class="post">
+<p>@Hyakanghen We make sure to maximize utmost safety for all of you. Please do not be alarmed, we are taking great measures to make sure nothing can happen.</p>
+</div>
+<br>
+<div class="post">
+<p>LOOOOOOOOOL THEY KNOW ABOUT US AND THE HYAKS TSUKIREP LOOOOOOOOOOOOOOL</p>
+</div>
+<br>
+<div class="post">
+<p>OH MY GOD TSUKIREP</p>
+</div>
+<br>
+<div class="post">
+<p>THEY KNOW OUR MEMES (our memes)</p>
+</div>
+<br>
+<div class="post">
+<p>Let's all overuse the meme (meme) meme just to make them use it a lot</p>
+</div>
+<br>
+<div class="post">
+<p>LOOOOL THEY CAN SEE US</p>
+</div>
+<br>
+<div class="post">
+<p>include me in the dataverse tsukiRep</p>
+</div>
+<br>
+<center>More to be translated</center>
+</div></body>
+
+<!-- Mirrored from classic.systemspace.network/dataverses/Infinity2/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Oct 2024 00:51:00 GMT -->
+</html>

@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from classic.systemspace.network/dataverses/Compendium/lfenews by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Oct 2024 00:52:07 GMT -->
+<head>
+<title>DATAVERSES</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../res/img/icons/apple-touch-icon.html">
+<link rel="icon" type="image/png" href="../../res/img/icons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="../../res/img/icons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="../../res/manifest.json">
+<link rel="mask-icon" href="../../res/img/icons/safari-pinned-tab.html" color="#000000">
+<link rel="shortcut icon" href="../../res/img/icons/favicon.ico">
+<meta name="msapplication-config" content="../../res/browserconfig.html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../res/css/reset.css"><link rel="stylesheet" href="../../res/css/common.css"><link rel="stylesheet" href="../../res/css/scanlines.css"><link rel="stylesheet" href="../../res/css/synapsian.css"><link rel="stylesheet" href="../../res/css/compendium.css"><script src="../../res/js/jquery.js"></script><script src="../../res/js/howler.js"></script><script src="../../res/js/synapsian.js"></script></head>
+<body>
+<div id="contentloader">
+<img id="loadtsuki" src="../../res/img/loader/loadtsuki.png" />
+<img id="loadspin" src="../../res/img/loader/loadspin.png" />
+</div>
+<style>
+	#contentloader {
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #000;
+		z-index: 10000;
+		transition: 0.2s;
+	}
+
+	#loadtsuki {
+		position: absolute;
+		left: calc(50% - 48px);
+		top: calc(50% - 48px);
+	}
+
+	#loadspin {
+		position: absolute;
+		left: calc(50% - 46px);
+		top: calc(50% - 47px);
+		animation: LoaderSpin 2s infinite linear;
+	}
+
+	@keyframes LoaderSpin {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+
+	.destroyedloader {
+		opacity: 0;
+		pointer-events: none;
+		transition: 0.5s !important;	
+	}
+
+	.destroyedloader #loadtsuki {
+		top: calc(50% - 100px);
+		transition: 0.5s ease-in !important;
+	}
+
+	.destroyedloader #loadspin {
+		top: calc(50% - 100px);
+		transition: 0.5s ease-in !important;
+	}
+</style>
+<script>
+	window.addEventListener("load", function(event) {
+		document.getElementById("contentloader").className = "destroyedloader";
+		document.getElementById("loadspin").src = "../../res/img/loader/loadfinish.png";
+	});
+	
+	window.onbeforeunload = function() {
+		document.getElementById("contentloader").classList.remove("destroyedloader");
+		document.getElementById("loadspin").src = "../../res/img/loader/loadspin.png";
+	}
+</script>
+<div id="header">
+<div id="headerbar">
+<a href="../../status.html"><img id="headerstatus" src="../../res/img/headerbar/status-ok.png"></a> <img id="headerfade_left" src="../../res/img/headerbar/fade-left.png">
+<marquee truespeed scrolldelay="30" scrollamount="3" id="headernews">
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+	<p>Welcome to the TSUKI project's homepage</p>
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+	<p style="color: lime">Registrations open</p>
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+	<p style="color: lime">Gates open</p>
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+	<p>4969 users registered</p>
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+	<p>Latest news: &quot;Object assignment&quot;</p>
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+	<p>Life is linked.</p>
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+</marquee>
+</div>
+<a href="../../index.html"><img id="knob" src="../../res/img/headerbar/knobs/tsuki_knob.png" /></a>
+<a href="https://systemspace.link/"><img id="knob4" src="../../res/img/headerbar/knobs/officialknob.png" /></a>
+<a href="../../login.html"><img id="knob5" src="../../res/img/headerbar/knobs/loginknob.png" /></a>
+<a href="../../preferences.html"><img id="knob2" src="../../res/img/headerbar/knobs/prefsknob.png" /></a>
+</div>
+<style>
+	#header {
+		position: relative;
+		z-index: 1;
+	}
+
+	#headerbar {
+		position: fixed;
+		width: 100%;
+		left: 0;
+		top: 0;
+		height: 20px;
+		background-color: #000;
+		box-shadow: 0px 1px #FFF, 0px 2px #000;
+	}
+
+	#headerstatus {
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: 1;
+	}
+
+	#headerfade_left {
+		position: fixed;
+		left: 150px;
+		top: 0px;
+		z-index: 1;
+	}
+
+	#headernews {
+		width: 100%;
+		font-family: Heading;
+		font-size: 16px;
+		letter-spacing: -4px;
+	}
+
+	#headernews p {
+		display: inline;
+		position: relative;
+		top: -2px;
+	}
+
+	#knob {
+		position: fixed;
+		left: 0;
+		top: 20px;
+	}
+
+	#knob2 {
+		position: fixed;
+		right: 0;
+		top: 20px;
+	}
+
+	#knob3 {
+		position: fixed;
+		right: 100px;
+		top: 20px;
+	}
+
+	#knob4 {
+		position: fixed;
+		left: 200px;
+		top: 20px;
+	}
+
+	#knob5 {
+		position: fixed;
+		left: 350px;
+		top: 20px;
+	}
+
+	#knob6 {
+		position: fixed;
+		left: 460px;
+		top: 20px;
+	}
+
+	#knob7 {
+		position: fixed;
+		left: 492px;
+		top: 20px;
+	}
+</style>
+<div id="index" class="dataverses">
+<div class="overload">
+<center>
+<span>
+<div>
+<br>
+<a href="../index.html"><h1>DATAVERSES</h1></a>
+<a href="../../index.html"><h6>back to TSUKI</h6></a>
+</div>
+</span>
+</center>
+<hr>
+<center>
+<a href="../index.html">One up</a>
+<br><br>
+</center>
+</div>
+</div>
+<script>
+	        document.addEventListener("DOMContentLoaded", function(event) { 
+	            var music = new Howl({
+	                src: ["/res/audio/bgm/compendium.ogg"],
+	                loop: true,
+	                volume: 0.5
+	            });
+
+	            window.addEventListener("load", function(event) {
+	                music.play();
+	            });
+
+	            synapsify();
+	        });
+	    </script>
+<div class="seperator"></div><div id="warning">
+<img src="../../res/img/ui/warning.png">
+<div id="warningcontent">
+<h1>Third-party content</h1>
+<p>The Compendium is content made by migrants. Although the Archivists work very hard to give you the most correct info available, there might be errors.</p>
+</div>
+</div><div class="compendium">
+<br><br>
+<a href="index-2.html"><h3 class="option">Back to index</h3></a>
+<hr><br>
+<img alt="Vulpes News" class="align-center" src="images/vulpes.png" />
+<hr>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="link" href="#july-2017" id="id16">July 2017</a>
+<ul>
+<li><a class="link" href="#id1" id="id17">2017-07-01</a></li>
+</ul>
+</li>
+<li><a class="link" href="#june-2017" id="id18">June 2017</a>
+<ul>
+<li><a class="link" href="#id2" id="id19">2017-06-28</a></li>
+<li><a class="link" href="#id3" id="id20">2017-06-25</a></li>
+<li><a class="link" href="#id4" id="id21">2017-06-13</a></li>
+<li><a class="link" href="#id5" id="id22">2017-06-12</a></li>
+</ul>
+</li>
+<li><a class="link" href="#may-2017" id="id23">May 2017</a>
+<ul>
+<li><a class="link" href="#id6" id="id24">2017-05-29</a></li>
+<li><a class="link" href="#id7" id="id25">2017-05-22</a></li>
+<li><a class="link" href="#id8" id="id26">2017-05-21</a></li>
+<li><a class="link" href="#id9" id="id27">2017-05-03</a></li>
+</ul>
+</li>
+<li><a class="link" href="#april-2017" id="id28">April 2017</a>
+<ul>
+<li><a class="link" href="#id10" id="id29">2017-04-29</a></li>
+<li><a class="link" href="#id11" id="id30">2017-04-27</a></li>
+<li><a class="link" href="#id12" id="id31">2017-04-26</a></li>
+<li><a class="link" href="#id13" id="id32">2017-04-24</a></li>
+<li><a class="link" href="#id14" id="id33">2017-04-23</a></li>
+<li><a class="link" href="#id15" id="id34">2017-04-21</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<hr>
+<div class="section" id="july-2017">
+<h1><a class="toc-backref" href="#id16">July 2017</a></h1>
+<div class="section" id="id1">
+<h2><a class="toc-backref" href="#id17">2017-07-01</a></h2>
+<p>At 4:00 PM GMT, the gates have been opened. A countdown for Friday 7th, 4:00 PM has replaced the main site.</p>
+<img alt="Gates Open" class="align-center" src="images/gatesopen.png" />
+<p>At 00:00 AM GMT, the gate initialisation is completed successfully on the first attempt. The gates open at 16:00 GMT, but they have to get ready.</p>
+</div>
+</div>
+<div class="section" id="june-2017">
+<h1><a class="toc-backref" href="#id18">June 2017</a></h1>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id19">2017-06-28</a></h2>
+<p>The Synapsian Mountain (Synapse HQ) is under siege by an as-of-yet unknown group. The group briefly captures 17 of the 38 keeps around the Mountain. The transfer of a bomb to the battlefield is attempted, but stopped in time by the TSUKI/Synapse forces. A full scan of the Mountain is under way.</p>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id20">2017-06-25</a></h2>
+<p><a class="link" href="../Infinity5/index.html">Infinity 5</a> is uploaded to systemspace.ai, with a list of questions from Systemspaceians to Lifers.</p>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id21">2017-06-13</a></h2>
+<p><a class="link" href="../Infinity4/index.html">Infinity 4</a> is uploaded to systemspace.ai. The hype intensifies.</p>
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id22">2017-06-12</a></h2>
+<p><a class="link" href="https://youtu.be/n5wV5s-ZfYc">/tsuki/ sings Duvet</a>. The performance gets uploaded to the shosha.tsuki Infinity proxy.</p>
+<p>This marks the first transmission from Lifers to LFE in history.</p>
+</div>
+</div>
+<div class="section" id="may-2017">
+<h1><a class="toc-backref" href="#id23">May 2017</a></h1>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id24">2017-05-29</a></h2>
+<p>An entire block of eNdymioN staff were thrown out of the TSUKI project and replaced.
+Migrants are celebrating.</p>
+</div>
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id25">2017-05-22</a></h2>
+<p>RISEN demands that a website allowing migrants to open their gates after July 1st but before the unlink is made. They say that migrants will still be able to transfer if they don't open their gates, but having a gate open would make them easier to track. They want to make the gate timed, so a user would only be able to open it for 48 hours.</p>
+<p>No further details are provided but speculation and distrust for RISEN are growing.</p>
+</div>
+<div class="section" id="id8">
+<h2><a class="toc-backref" href="#id26">2017-05-21</a></h2>
+<p>A RISEN employee shows up in a near-death state. A TSUKI rescue team managed to get to the location in time and stabilize him. Preliminary reports indicate the RISEN employee was choked, but no suspects were identified or apprehended.</p>
+<p>There are no signs that would identify the perpetrator as a Hyakanghen; the victim has not been shattered.</p>
+<p>There is speculation that this was a warning from the terrorist group, but it is unconfirmed as of yet.</p>
+</div>
+<div class="section" id="id9">
+<h2><a class="toc-backref" href="#id27">2017-05-03</a></h2>
+<p>EndymioN closes the void stream.</p>
+</div>
+</div>
+<div class="section" id="april-2017">
+<h1><a class="toc-backref" href="#id28">April 2017</a></h1>
+<div class="section" id="id10">
+<h2><a class="toc-backref" href="#id29">2017-04-29</a></h2>
+<p>Hyakanghen group Kanyra agrees to cease interference in the TSUKI project.</p>
+<p>Kanyra is one of the less influential Hyakanghen groups in the outskirts of LFE, situated mainly around western-Euclean universes. Nevertheless, this marks a major change in tone of Hyakanghen dialogue with the TSUKI members.</p>
+<p>Kanyra members made comments expressing their positive attitude towards humans. The cause of their actions is as of yet unknown.</p>
+<p>In other news, eNdymioN shares are down 1.43%. RISEN is down 0.07%. Synapse has, against all odds, gone up by 0.12%.</p>
+</div>
+<div class="section" id="id11">
+<h2><a class="toc-backref" href="#id30">2017-04-27</a></h2>
+<p>Multiple eNdymioN employees are being charged with exposing unknown, highly confidential data. Nobody can provide evidence, though.</p>
+<p>Tensions and heavy speculation concerning the void stream are rising in LFE.</p>
+</div>
+<div class="section" id="id12">
+<h2><a class="toc-backref" href="#id31">2017-04-26</a></h2>
+<p><strong>BREAKING - Over 120 important eNdymioN members on strike</strong></p>
+<p>Apparently some eNdymioN members are protesting against the Life &gt; LFE transfer.</p>
+<p>Synapsian representatives are disturbed by the radio silence on eNdymioN's side.</p>
+<p>Second hand reports claim that eNdymioN employees associated with TSUKI are missing, and the group on strike is not connected to the TSUKI project.</p>
+<p>The void stream has changed, implying someone at eNdymioN is fiddling with it.</p>
+</div>
+<div class="section" id="id13">
+<h2><a class="toc-backref" href="#id32">2017-04-24</a></h2>
+<p>eNdymioN provides Tsuki with a stream to put up on the TSUKI project website. They are saying it contains human-readable data.</p>
+<p>Tsuki loses contact with eNdymioN.</p>
+</div>
+<div class="section" id="id14">
+<h2><a class="toc-backref" href="#id33">2017-04-23</a></h2>
+<p>The crisis is in full swing.</p>
+<p>Tsuki mentions Hayra (a RISENII) is angered by the situation.</p>
+</div>
+<div class="section" id="id15">
+<h2><a class="toc-backref" href="#id34">2017-04-21</a></h2>
+<p>Tsuki mentions there is an epidemic in one universe caused by all the matter holding a specific type of energy that is toxic to all living species in there.</p>
+</div>
+</div>
+</div></body>
+
+<!-- Mirrored from classic.systemspace.network/dataverses/Compendium/lfenews by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Oct 2024 00:52:09 GMT -->
+</html>

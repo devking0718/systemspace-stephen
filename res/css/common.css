@@ -1,0 +1,191 @@
+@font-face {
+  font-family: paragraph;
+  src: url(../font/paragraph.ttf);
+}
+
+@font-face {
+  font-family: heading;
+  src: url(../font/heading.woff);
+}
+
+@font-face {
+  font-family: s;
+  src: url(../font/synapsian.ttf);
+}
+
+@font-face {
+  font-family: a;
+  src: url(../font/makina.otf);
+}
+
+html {
+  background-color: #000;
+  color: #fff;
+  font-family: paragraph, sans-serif;
+  font-size: 16px;
+  cursor: url(../img/ui/cursor.png), default;
+}
+
+a {
+  cursor: url(../img/ui/pointer.png), default;
+  color: inherit;
+  text-decoration: none;
+}
+
+h1 {
+  font-family: Heading;
+}
+
+*::-moz-selection {
+  color: #000;
+  background-color: #fff;
+}
+
+*::selection {
+  color: #000;
+  background-color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fff;
+}
+
+.seperator {
+  width: 100%;
+  height: 32px;
+  background-image: url(../img/ui/seperator.png);
+}
+
+.seperate {
+  width: 100%;
+  height: 32px;
+  background-image: url(../img/ui/seperate.png);
+}
+
+.syn {
+  font-family: S;
+}
+
+.padded {
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
+
+.overload {
+  margin-left: 20vw;
+  width: calc(100% - 40vw);
+  background-color: #000;
+}
+
+@media screen and (max-width: 480px) {
+  .sm-overload {
+    margin-left: 0px !important;
+    width: 100% !important;
+    background-color: #000;
+  }
+
+  #wallpaper h1 {
+    left: 20% !important;
+  }
+
+  #wallpaper #lain {
+	left: 0 !important;
+	width: 100% !important;
+  }
+
+  #header,
+  #headerbar,
+  #headernews {
+    width: 100vw !important;
+	overflow: hidden !important;
+  }
+
+  #knob2 {
+    left: 350px !important;
+  }
+  #knob4 {
+    left: 150px !important;
+  }
+  #knob5 {
+    left: 250px !important;
+  }
+
+  
+}
+
+@media screen and (max-width: 1024px) {
+	.indexlist {
+		height: unset !important;
+	  }
+}
+
+.link {
+  color: #ff0;
+}
+
+.link:hover {
+  color: #ff0;
+  text-decoration: none;
+}
+
+.overno {
+  color: #888 !important;
+  pointer-events: none;
+}
+
+.overno:hover {
+  background-color: #888 !important;
+  color: #000 !important;
+}
+
+#index {
+  background-color: #000;
+  background-image: url(../img/bg/index.png);
+  background-attachment: fixed;
+  background-position: center;
+  padding: 5.2em 10vw;
+}
+
+.indexlist {
+  width: calc(100% - 170px);
+  display: inline-block;
+  height: 64px;
+  line-height: 64px;
+  vertical-align: 28px;
+}
+
+.indexlist span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+.indexlist a,
+.linkt1 {
+  color: #ff0;
+}
+
+.indexlist a:hover,
+.linkt1:hover {
+  background-color: #ff0;
+  color: #000;
+}
+
+#index.dataverses {
+  background-image: url(../img/bg/dataverses.png);
+}
+
+#index.dataverses h6 {
+  font-weight: 700;
+  font-size: 70%;
+  margin: 2.33em 0;
+}

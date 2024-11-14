@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from classic.systemspace.network/nothing by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Oct 2024 00:46:22 GMT -->
+<head>
+<title>TSUKI/THANK YOU</title>
+<link rel="apple-touch-icon" sizes="180x180" href="res/img/icons/apple-touch-icon.html">
+<link rel="icon" type="image/png" href="res/img/icons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="res/img/icons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="res/manifest.json">
+<link rel="mask-icon" href="res/img/icons/safari-pinned-tab.html" color="#000000">
+<link rel="shortcut icon" href="res/img/icons/favicon.ico">
+<meta name="msapplication-config" content="res/browserconfig.html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
+<meta charset="UTF-8">
+<link rel="stylesheet" href="res/css/reset.css"><link rel="stylesheet" href="res/css/common.css"><link rel="stylesheet" href="res/css/scanlines.css"><script src="res/js/jquery.js"></script><script src="res/js/howler.js"></script>
+<script>
+		document.addEventListener("DOMContentLoaded", function(event) { 
+			var intro = new Howl({
+				src: ['/res/audio/bgm/koronba-intro.ogg'],
+				loop: false,
+				volume: 0.5
+			});
+
+			var loop = new Howl({
+				src: ['/res/audio/bgm/koronba.ogg'],
+				loop: true,
+				volume: 0.5
+			});
+
+			window.addEventListener('load', function() {
+				intro.once('load', function(){
+					intro.play();
+					setTimeout(function(){ loop.play(); }, 42657);
+				});
+			});
+
+			setInterval(function() {
+				$("#image").css("opacity", "0");
+				setTimeout(function(){
+					$("#image").css("background-image", "url(/api/randomimage?" + Math.random() + ")"); }, 1000);
+				setTimeout(function(){ $("#image").css("opacity", "1"); }, 1000);
+			}, 10000);
+
+			GetRegistrants();
+			UpdateClock();
+
+			setInterval(GetRegistrants, 1000);
+			setInterval(UpdateClock, 1000);
+
+			$("body").css("opacity", "1");
+		});
+
+		var new_time = 0;
+		var rec = false;
+		var registrants = 4969;
+
+		function GetRegistrants() {
+            var original_time = Math.floor(new Date("Jul 01 2023 17:00").getTime() / 1000);
+
+            var slots_left = 31000 - registrants;
+			new_time = original_time + 1728 * slots_left;
+			rec = true;
+
+			$("#slotsremaining").text(slots_left);
+		}
+
+		function UpdateClock() {
+			var now = new Date().getTime();
+			var countDownDate = new Date(new_time * 1000).getTime();
+
+			// Find the distance between now an the count down date
+			var distance = countDownDate - now;
+
+			// Time calculations for days, hours, minutes and seconds
+			var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+			if (minutes < 10) {
+				minutes = "0" + minutes;
+			}
+
+			if (seconds < 10) {
+				seconds = "0" + seconds;
+			}
+
+			// Display the result in the element with id="demo"
+			if (distance >= 0 && rec) {
+				$("#countdown").text(days + "d " + hours + ":" + minutes + ":" + seconds);
+			} else {
+				$("#countdown").text("Waiting...");
+			}
+
+		}
+	</script>
+<style>
+		body {
+			opacity: 0;
+			transition: opacity 3s;
+		}
+
+		#image {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			background-position: center;
+			background-size: contain;
+			background-repeat: no-repeat;
+			transition: opacity 1s;
+		}
+
+		@font-face {
+			font-family: CNT;
+			src: url(res/font/countdown.ttf);
+		}
+
+		#countdown {
+			font-family: CNT;
+			font-size: 3em;
+			margin: 0;
+			color: rgba(255,255,255,0.2) !important;
+			text-shadow: 0px 0px 3px rgba(0,0,0,0.5);
+			position: fixed;
+			left: 16px;
+			top: 16px;
+		}
+
+		#r {
+			font-family: Heading;
+			font-size: 1em;
+			margin: 0;
+			color: rgba(255,255,255,0.1) !important;
+			text-shadow: 0px 0px 3px rgba(0,0,0,0.25);
+			position: fixed;
+			left: 16px;
+			top: 4.5em;
+		}
+	</style>
+</head>
+<body>
+<div id="contentloader">
+<img id="loadtsuki" src="res/img/loader/loadtsuki.png" />
+<img id="loadspin" src="res/img/loader/loadspin.png" />
+</div>
+<style>
+	#contentloader {
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #000;
+		z-index: 10000;
+		transition: 0.2s;
+	}
+
+	#loadtsuki {
+		position: absolute;
+		left: calc(50% - 48px);
+		top: calc(50% - 48px);
+	}
+
+	#loadspin {
+		position: absolute;
+		left: calc(50% - 46px);
+		top: calc(50% - 47px);
+		animation: LoaderSpin 2s infinite linear;
+	}
+
+	@keyframes LoaderSpin {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+
+	.destroyedloader {
+		opacity: 0;
+		pointer-events: none;
+		transition: 0.5s !important;	
+	}
+
+	.destroyedloader #loadtsuki {
+		top: calc(50% - 100px);
+		transition: 0.5s ease-in !important;
+	}
+
+	.destroyedloader #loadspin {
+		top: calc(50% - 100px);
+		transition: 0.5s ease-in !important;
+	}
+</style>
+<script>
+	window.addEventListener("load", function(event) {
+		document.getElementById("contentloader").className = "destroyedloader";
+		document.getElementById("loadspin").src = "res/img/loader/loadfinish.png";
+	});
+	
+	window.onbeforeunload = function() {
+		document.getElementById("contentloader").classList.remove("destroyedloader");
+		document.getElementById("loadspin").src = "res/img/loader/loadspin.png";
+	}
+</script>
+<div id="image"></div>
+<span id="r">4969 registrants</span>
+<h2 id="countdown" style="color: yellow">Connecting...</h2>
+</body>
+
+<!-- Mirrored from classic.systemspace.network/nothing by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Oct 2024 00:46:22 GMT -->
+</html>

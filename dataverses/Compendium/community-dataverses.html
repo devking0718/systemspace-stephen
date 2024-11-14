@@ -1,0 +1,417 @@
+
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from classic.systemspace.network/dataverses/Compendium/community-dataverses by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Oct 2024 00:52:09 GMT -->
+<head>
+<title>DATAVERSES</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../res/img/icons/apple-touch-icon.html">
+<link rel="icon" type="image/png" href="../../res/img/icons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="../../res/img/icons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="../../res/manifest.json">
+<link rel="mask-icon" href="../../res/img/icons/safari-pinned-tab.html" color="#000000">
+<link rel="shortcut icon" href="../../res/img/icons/favicon.ico">
+<meta name="msapplication-config" content="../../res/browserconfig.html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../res/css/reset.css"><link rel="stylesheet" href="../../res/css/common.css"><link rel="stylesheet" href="../../res/css/scanlines.css"><link rel="stylesheet" href="../../res/css/synapsian.css"><link rel="stylesheet" href="../../res/css/compendium.css"><script src="../../res/js/jquery.js"></script><script src="../../res/js/howler.js"></script><script src="../../res/js/synapsian.js"></script></head>
+<body>
+<div id="contentloader">
+<img id="loadtsuki" src="../../res/img/loader/loadtsuki.png" />
+<img id="loadspin" src="../../res/img/loader/loadspin.png" />
+</div>
+<style>
+	#contentloader {
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #000;
+		z-index: 10000;
+		transition: 0.2s;
+	}
+
+	#loadtsuki {
+		position: absolute;
+		left: calc(50% - 48px);
+		top: calc(50% - 48px);
+	}
+
+	#loadspin {
+		position: absolute;
+		left: calc(50% - 46px);
+		top: calc(50% - 47px);
+		animation: LoaderSpin 2s infinite linear;
+	}
+
+	@keyframes LoaderSpin {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+
+	.destroyedloader {
+		opacity: 0;
+		pointer-events: none;
+		transition: 0.5s !important;	
+	}
+
+	.destroyedloader #loadtsuki {
+		top: calc(50% - 100px);
+		transition: 0.5s ease-in !important;
+	}
+
+	.destroyedloader #loadspin {
+		top: calc(50% - 100px);
+		transition: 0.5s ease-in !important;
+	}
+</style>
+<script>
+	window.addEventListener("load", function(event) {
+		document.getElementById("contentloader").className = "destroyedloader";
+		document.getElementById("loadspin").src = "../../res/img/loader/loadfinish.png";
+	});
+	
+	window.onbeforeunload = function() {
+		document.getElementById("contentloader").classList.remove("destroyedloader");
+		document.getElementById("loadspin").src = "../../res/img/loader/loadspin.png";
+	}
+</script>
+<div id="header">
+<div id="headerbar">
+<a href="../../status.html"><img id="headerstatus" src="../../res/img/headerbar/status-ok.png"></a> <img id="headerfade_left" src="../../res/img/headerbar/fade-left.png">
+<marquee truespeed scrolldelay="30" scrollamount="3" id="headernews">
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+	<p>Welcome to the TSUKI project's homepage</p>
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+	<p style="color: lime">Registrations open</p>
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+	<p style="color: lime">Gates open</p>
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+	<p>4969 users registered</p>
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+	<p>Latest news: &quot;Object assignment&quot;</p>
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+	<p>Life is linked.</p>
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+</marquee>
+</div>
+<a href="../../index.html"><img id="knob" src="../../res/img/headerbar/knobs/tsuki_knob.png" /></a>
+<a href="https://systemspace.link/"><img id="knob4" src="../../res/img/headerbar/knobs/officialknob.png" /></a>
+<a href="../../login.html"><img id="knob5" src="../../res/img/headerbar/knobs/loginknob.png" /></a>
+<a href="../../preferences.html"><img id="knob2" src="../../res/img/headerbar/knobs/prefsknob.png" /></a>
+</div>
+<style>
+	#header {
+		position: relative;
+		z-index: 1;
+	}
+
+	#headerbar {
+		position: fixed;
+		width: 100%;
+		left: 0;
+		top: 0;
+		height: 20px;
+		background-color: #000;
+		box-shadow: 0px 1px #FFF, 0px 2px #000;
+	}
+
+	#headerstatus {
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: 1;
+	}
+
+	#headerfade_left {
+		position: fixed;
+		left: 150px;
+		top: 0px;
+		z-index: 1;
+	}
+
+	#headernews {
+		width: 100%;
+		font-family: Heading;
+		font-size: 16px;
+		letter-spacing: -4px;
+	}
+
+	#headernews p {
+		display: inline;
+		position: relative;
+		top: -2px;
+	}
+
+	#knob {
+		position: fixed;
+		left: 0;
+		top: 20px;
+	}
+
+	#knob2 {
+		position: fixed;
+		right: 0;
+		top: 20px;
+	}
+
+	#knob3 {
+		position: fixed;
+		right: 100px;
+		top: 20px;
+	}
+
+	#knob4 {
+		position: fixed;
+		left: 200px;
+		top: 20px;
+	}
+
+	#knob5 {
+		position: fixed;
+		left: 350px;
+		top: 20px;
+	}
+
+	#knob6 {
+		position: fixed;
+		left: 460px;
+		top: 20px;
+	}
+
+	#knob7 {
+		position: fixed;
+		left: 492px;
+		top: 20px;
+	}
+</style>
+<div id="index" class="dataverses">
+<div class="overload">
+<center>
+<span>
+<div>
+<br>
+<a href="../index.html"><h1>DATAVERSES</h1></a>
+<a href="../../index.html"><h6>back to TSUKI</h6></a>
+</div>
+</span>
+</center>
+<hr>
+<center>
+<a href="../index.html">One up</a>
+<br><br>
+</center>
+</div>
+</div>
+<script>
+	        document.addEventListener("DOMContentLoaded", function(event) { 
+	            var music = new Howl({
+	                src: ["/res/audio/bgm/compendium.ogg"],
+	                loop: true,
+	                volume: 0.5
+	            });
+
+	            window.addEventListener("load", function(event) {
+	                music.play();
+	            });
+
+	            synapsify();
+	        });
+	    </script>
+<div class="seperator"></div><div id="warning">
+<img src="../../res/img/ui/warning.png">
+<div id="warningcontent">
+<h1>Third-party content</h1>
+<p>The Compendium is content made by migrants. Although the Archivists work very hard to give you the most correct info available, there might be errors.</p>
+</div>
+</div><div class="compendium">
+<br><br>
+<a href="index-2.html"><h3 class="option">Back to index</h3></a><hr><br>
+<div class="section" id="community-dataverses">
+<h1><a class="toc-backref" href="#id3">Community Dataverses</a></h1>
+<p>This document is a collection of essays, theories, and explanations of Systemspace lore, written by our community.</p>
+<p>Note that the theories present here are mostly conjecture, and may not be true - those confirmed by Tsuki to be correct will be marked as &quot;[TSUKI CONFIRMED]&quot;, and those commented on by Tsuki will be marked as &quot;[TSUKI VERIFIED]&quot;.</p>
+<hr>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="link" href="#community-dataverses" id="id3">Community Dataverses</a></li>
+<li><a class="link" href="#s-auroraic-echoing-hypothesis-tsuki-confirmed" id="id4">1336's Auroraic Echoing hypothesis [TSUKI CONFIRMED]</a>
+<ul>
+<li><a class="link" href="#section-1-how-do-hard-drives-and-tapes-work" id="id5">Section 1: How do hard drives (and tapes) work?</a></li>
+<li><a class="link" href="#section-2-why-should-i-care-and-a-few-words-about-life-and-aurora" id="id6">Section 2: &quot;Why should I care?&quot; and a few words about Life and Aurora</a></li>
+<li><a class="link" href="#tsuki-s-response" id="id7">Tsuki's response:</a></li>
+</ul>
+</li>
+<li><a class="link" href="#s-life-lfe-time-conversion-table-tsuki-confirmed" id="id8">404's Life -&gt; LFE time conversion table [TSUKI CONFIRMED]</a></li>
+<li><a class="link" href="#on-the-reality-of-systems-tsuki-verified" id="id9">1426 on the reality of Systems [TSUKI VERIFIED]</a>
+<ul>
+<li><a class="link" href="#original-message" id="id10">Original message</a></li>
+<li><a class="link" href="#id1" id="id11">Tsuki's response</a></li>
+<li><a class="link" href="#the-theory-expanded" id="id12">The theory expanded</a></li>
+</ul>
+</li>
+<li><a class="link" href="#and-536-on-how-a-system-can-have-infinite-realities-yet-take-up-a-finite-amount-of-aurora-tsuki-verified-confirmed" id="id13">1336 and 536 on how a System can have infinite realities yet take up a finite amount of Aurora [TSUKI VERIFIED/CONFIRMED?]</a>
+<ul>
+<li><a class="link" href="#s-question-on-infinite-realities" id="id14">536's question on infinite realities</a></li>
+<li><a class="link" href="#explaining-systemspace-with-maths" id="id15">1336, explaining Systemspace with maths</a></li>
+<li><a class="link" href="#id2" id="id16">Tsuki's response</a></li>
+<li><a class="link" href="#on-fake-time" id="id17">536 on &quot;fake&quot; time</a></li>
+<li><a class="link" href="#tsuki-with-the-in-depth-response" id="id18">Tsuki with the in-depth response</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<hr>
+<div class="section" id="s-auroraic-echoing-hypothesis-tsuki-confirmed">
+<h1><a class="toc-backref" href="#id4">1336's Auroraic Echoing hypothesis [TSUKI CONFIRMED]</a></h1>
+<div class="section" id="section-1-how-do-hard-drives-and-tapes-work">
+<h2><a class="toc-backref" href="#id5">Section 1: How do hard drives (and tapes) work?</a></h2>
+<p>Disclaimer: this section is about old hard drives. The new ones work a bit differently. It's also a <em>huge</em> simplification.</p>
+<p>Hard drives (and tapes) store data on magnetic tracks. A magnetized read/write head moves over the track, magnetizing portions of it with varying strength. The strength of the magnetic field dictates what value a section of the track (most often, a &quot;bit&quot;) holds. When overwriting data, if the portion being overwritten is the same, the head does nothing; if it's different, it overwrites it with the difference between the old and new data.</p>
+<p>It is possible to recover overwritten data from tapes and old hard drives. Because the positioning of the read/write head can never be perfectly reproduced (nothing can be physically perfectly reproduced), presumably the read/write head was positioned a bit differently during the first write and the overwriting. Let's, for the sake of this explanation, imagine that a 1mm difference (this is obviously nowhere near correct) in distance makes the magnetic field weaker by 10%.</p>
+<p>Let's write the values <tt class="docutils literal">1 0 1 0</tt> into four cells on the tape first. Assume our writing head happened to be perfectly above the center of the track:</p>
+<img alt="First write" class="align-center" src="images/community/tape_firstpass.png" style="width: 600px;" />
+<p>Now we overwrite the data with <tt class="docutils literal">0 1 1 0</tt>. Assume the writing head happened to be 1mm off the track to the right.</p>
+<img alt="Second write" class="align-center" src="images/community/tape_secondpass.png" style="width: 600px;" />
+<p>As you can see, the values on the actual track rarely are perfectly equal to one and zero - the computer rounds them to the nearest value to get the actual result. Due to this property, we can use a particular trick. If we take the intended values (the rounded ones) on the track, and subtract the values offset exactly as much as the writing head was during the second pass, we get <em>the original values from the first write, except diminished by a factor of ten!</em> It is now trivial to simply multiply the values by ten - and we have recovered the original data.</p>
+<p>Those tiny differences that allowed us to recover the original data are called &quot;remnant data&quot;.</p>
+</div>
+<div class="section" id="section-2-why-should-i-care-and-a-few-words-about-life-and-aurora">
+<h2><a class="toc-backref" href="#id6">Section 2: &quot;Why should I care?&quot; and a few words about Life and Aurora</a></h2>
+<p>We've heard about Auroraic Echoing. It's a way for stuff from a system, or from the past, to appear in a different system. I think that Aurora is like space on a hard drive. Things in Systems, like programs and files on your computer, take up Aurora (the space on your drive), and it's freed again when you remove those files. My theory is, now, that when you free (&quot;negate&quot;) the Aurora, it can be assigned to a different System to use.</p>
+<p>Tsuki mentioned today that a good system should always assign the same Aurora to the same thing. The main issues with Life are that 1) it doesn't negate Aurora and 2) it doesn't reuse Aurora. This is super important. It means all Aurora that Life uses is from outside Life. Now, if we consider Aurora to be like space on a hard drive, it means that technically all of the Aurora in Life could come from different Systems, and have the &quot;remnant data&quot; that I explained above. This remnant Aurora data might be the mechanism behind Auroraic Echoing.</p>
+<p>~1336</p>
+</div>
+<div class="section" id="tsuki-s-response">
+<h2><a class="toc-backref" href="#id7">Tsuki's response:</a></h2>
+<p>You pretty much hit the nail perfectly on the head. The Aurora is still slightly in its previous state when it enters Life, causing it to bend things as they would in their previous state.</p>
+</div>
+</div>
+<hr>
+<div class="section" id="s-life-lfe-time-conversion-table-tsuki-confirmed">
+<h1><a class="toc-backref" href="#id8">404's Life -&gt; LFE time conversion table [TSUKI CONFIRMED]</a></h1>
+<pre class="literal-block">
+LFE vs Life: AOC edition (confirmed)
+---------------------------
+0.3 LFE seconds = 1 Life second
+3 LFE sec = 10 Life sec
+18 LFE sec = 60 Life sec = 1 Life minute
+1080 LFE sec = 60 Life minutes
+25920 LFE sec / 24 Life hours = 1 Life day
+----------------------------
+32 hrs of 64 mins = 24 hrs of 60 mins
+16 hrs of 128 mins = 12 hrs of 120 mins
+8 hrs of 256 mins = 6 hrs of 240 mins
+24 hrs of 768 mins = 18 hrs of 720 mins
+-----------------------------
+233 280 LFE sec (2.7 lfe days)
+= 12960 minutes Life (9 days)
+-----------------------------
+86,400 LFE sec / LFE day
+32 hrs per day
+64 mins per hour
+-----------------------------
+1 day     = 32 hours
+1 hour    = 64 minutes
+1 minute  = 42.1875 (42 3/16) seconds
+2 700 sec = hour
+42.1875 s = 1 min
+48 min    = 2,025 sec = 3/4 of one hour
+4050 s    = 1.5 hours
+8100 s    = 3 hours
+16200 s   = 6 hours
+32400 s   = 12 hours
+64800 s   = 24 hours = .75 days
+48 hours  = 1.5 days
+96 hours  = 3 days
+
+32 hours  = 1 day
+512 days  = 1 Halcyon
+4 Halcyon = 1 year
+
+1 year = 2,048 days
+		</pre>
+<p>~404</p>
+<p>Note:</p>
+<ul>
+<li>1 omniversal cycle = 720 Hanacyons</li>
+<li>1 Hanacyon = 4 Halcyons</li>
+<li>1 Halcyon = 16 Parcyons</li>
+<li>1 Parcyon = 32 Hi</li>
+<li>1 Hi = 32 Fen</li>
+<li>1 Fen = 64 Tan</li>
+<li>1 Tan = 64 Kan</li>
+</ul>
+<p>An omniversal cycle is kinda like a Life millenium. A Hanacyon is kinda like a Life year. A Halcyon is kinda like a quarter of a Life year. A Parcyon is kinda like a Life week. A Hi is kinda like a quarter of a Life day. A Fen is kinda like fifteen Life minutes.</p>
+<p>A Systemspatial spin is the smallest possible division of time - kinda like a Life Planck time.</p>
+<p>~1336</p>
+</div>
+<div class="section" id="on-the-reality-of-systems-tsuki-verified">
+<h1><a class="toc-backref" href="#id9">1426 on the reality of Systems [TSUKI VERIFIED]</a></h1>
+<div class="section" id="original-message">
+<h2><a class="toc-backref" href="#id10">Original message</a></h2>
+<p>I always thought Aurora creates &quot;real&quot; physical worlds. When you &quot;program&quot; it to create a metal box in a system, it doesn't simulate a metal box, it creates a real, physical metal box. The same goes for laws of phisics and everything else. Referring to it as a simulation just makes it all way easier to understand, as it is a concept we are very used to, and it shares a lot in common with how Systemspace works. So Systems would be different realities that exist in an &quot;upper-level space&quot; called Systemspace, if that makes sense.</p>
+<p>~1426</p>
+</div>
+<div class="section" id="id1">
+<h2><a class="toc-backref" href="#id11">Tsuki's response</a></h2>
+<p>Systems are as much of a simulation as an SQL database is a simulation of a drawer with folders and stuff. Is a .txt file a simulation of a book? Is an image a simulation of an event? You can't say it's a simulation because it doesn't copy anything, just like .txt files aren't trying to be books.</p>
+</div>
+<div class="section" id="the-theory-expanded">
+<h2><a class="toc-backref" href="#id12">The theory expanded</a></h2>
+<p>To expand on the previous point, Tsuki confirmed that from the point of view of Systemspace, Systems are indeed physical and not digital. So Aurora is a physical energy that can be used to create physical realities by influencing it, &quot;programming&quot; it with means we know nothing about.</p>
+<p>Still, this does not mean Systems are &quot;real&quot; in an absolute sense. Of course they are real for those who live inside them, Life is real to us as we can touch it, feel it and percieve it with all of our senses all the times in a consistent way. Now we know Systems are real from Systemspace's perspective too as they are not emulated by machines but take full physical form thanks to Aurora.</p>
+<p>Now we have a base understanding of the nature of Systems, what we miss is knowledge about Systemspace's nature. We know there is an &quot;outside&quot;, an even higher level, how does Systemspace relate to the &quot;outside&quot;?</p>
+<p>We know nothing about it, the only thing Tsuki hinted at is the existence of an &quot;hyperdimensional server room&quot; which could point to Systemspace being a digital creation but this is only a speculation, we will need more information before progressing this topic further.</p>
+<p>~1426</p>
+</div>
+</div>
+<div class="section" id="and-536-on-how-a-system-can-have-infinite-realities-yet-take-up-a-finite-amount-of-aurora-tsuki-verified-confirmed">
+<h1><a class="toc-backref" href="#id13">1336 and 536 on how a System can have infinite realities yet take up a finite amount of Aurora [TSUKI VERIFIED/CONFIRMED?]</a></h1>
+<div class="section" id="s-question-on-infinite-realities">
+<h2><a class="toc-backref" href="#id14">536's question on infinite realities</a></h2>
+<blockquote>I've been meaning to ask this for a while. It's been said before that Life &quot;simulates&quot; every possible version of itself. How does that work? Wouldn't that use an infinite amount of Aurora? Are all of those versions as &quot;real&quot; as each other, is there a Tsukirep in all of them, or just our reality? If just ours, why is it ours in particular?</blockquote>
+</div>
+<div class="section" id="explaining-systemspace-with-maths">
+<h2><a class="toc-backref" href="#id15">1336, explaining Systemspace with maths</a></h2>
+<blockquote>
+<p>Assume that the state of a particular reality at a particular point in time is stored as, let's say, a sequence of ten numbers. Let's say that storing one number takes 1A. Naively, this means that a reality takes 10A, and storing infinitely many realities would take up an infinite amount of Aurora, right? What's even more concerning is that in a System, time passes, and the numbers change with time, so there is seemingly no way to store them persistently and efficiently. However, there is a much better way. If we say that a reality is like a sequence of numbers, we can define a System as all the possible sequences that fit a certain definition - that are part of one System. Thus, imagine that our Life was the first ten Fibonacci numbers:</p>
+<p>0 1 1 2 3 5 8 13 21 34</p>
+<p>Let's say that we could move forwards and backwards in time by finding the previous/next numbers of the sequence:</p>
+<p>1 1 2 3 5 7 13 21 34 55</p>
+<p>I mentioned we can define a System as all the possible sequences that fit a certain definition. Let's do that now. We can define all possible sequences that are similar to the Fibonacci sequence as, for example:</p>
+<pre class="literal-block">aₙ = aₙ₋₁ + aₙ₋₂</pre>
+<p>for some a₀, a₁.</p>
+<p>Since we implicitly defined a particular reality as a defined sequence of numbers, we can now say that it is the above sequence for a given a₀, a₁. Thus, we can find different realities simply by changing the values of a₀ and a₁.</p>
+<p>Since we defined the state of a particular reality at a particular point in time as a sequence of ten numbers, we can say that to find a point in time <tt class="docutils literal">n</tt> for a reality defined as a sequence <tt class="docutils literal">a</tt>, you just grab <tt class="docutils literal">aₙ, <span class="pre">aₙ₊₁,</span> <span class="pre">...,</span> <span class="pre">aₙ₊₉</span></tt>.</p>
+<p>We have now defined a complete System, with a method to find all of its infinite alternate realities and all of its infinite points in time, within just a few lines. We didn't have to use an infinite amount of space for storing it!</p>
+<p>There are some interesting takeaways, though. Notice that a sequence <tt class="docutils literal">aₙ = <span class="pre">aₙ₋₁</span> + <span class="pre">aₙ₋₂;</span> a₀ = 0, a₁ = 1</tt> (the Fibonacci sequence: 0 1 1 2 3 ...), and, for example, the sequence <tt class="docutils literal">aₙ = <span class="pre">aₙ₋₁</span> + <span class="pre">aₙ₋₂;</span> a₀ = 1, a₁ = 2</tt> (1 2 3 5 8 ...) are <em>the exact same sequence</em>, but &quot;offset&quot; a bit.</p>
+<p>Let's call the sequence representing our reality <tt class="docutils literal">r</tt>. The above paragraph means we can <em>always</em> find a sequence <tt class="docutils literal">a</tt> where <tt class="docutils literal">aₙ = <span class="pre">rₙ₋₁</span></tt> - a reality where the earliest possible point in time comes <em>after</em> the &quot;start&quot; of our reality. We can also find a sequence <tt class="docutils literal">a</tt> where <tt class="docutils literal">aₙ = <span class="pre">rₙ₊₁</span></tt> - a reality where the earliest possible point in time was <em>before</em> the &quot;start&quot; of our reality - an example would be a sequence <tt class="docutils literal"><span class="pre">-8</span> 5 <span class="pre">-3</span> 2 <span class="pre">-1</span> 1 0 1 1 2 ...</tt> (google &quot;bidirectional Fibonacci&quot;).</p>
+<p>This means two important things. First of all, the Last Thursday hypothesis is true, but it is true in a peculiar way - namely, <em>for all possible points in time, there exists a reality of Life that didn't exist before that point of time</em>. To put it another way, there exists a point in Systemspace time at which the Life was created, for every point in Life time there exists a reality of Life that didn't exist before then, but there doesn't exist a singular point in Life time at which all realities of Life were created.</p>
+</blockquote>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id16">Tsuki's response</a></h2>
+<blockquote>There is no start or finish to Life, but there are points in time where a System is linked and unlinked. You cannot travel back in time farther than the last link, because you'll be thrown out, as there won't be a path from that point in time to the System. You can't travel further in time than the next unlink either. <em>However</em>, Last Thursdayism isn't wrong. You can make a System, make everyone forget the link date, and put a mechanism in place to generate &quot;fake&quot; time before the link date.Something having happened before the link date doesn't mean it's not noticeable or doesn't have an impact on post-link history.</blockquote>
+</div>
+<div class="section" id="on-fake-time">
+<h2><a class="toc-backref" href="#id17">536 on &quot;fake&quot; time</a></h2>
+<blockquote>Tsuki did describe that there are many timelines, and that the souls collectively decide which one is &quot;real&quot;, or the &quot;active&quot; one. Am I right in assuming, if that's the case, that apparent pre-human history is the result of the link letting in souls that &quot;decided on&quot; one of the infinite Life timelines floating around from before the Link?</blockquote>
+</div>
+<div class="section" id="tsuki-with-the-in-depth-response">
+<h2><a class="toc-backref" href="#id18">Tsuki with the in-depth response</a></h2>
+<blockquote>Pretty much.</blockquote>
+</div>
+</div>
+</div></body>
+
+<!-- Mirrored from classic.systemspace.network/dataverses/Compendium/community-dataverses by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Oct 2024 00:52:11 GMT -->
+</html>

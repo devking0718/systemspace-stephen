@@ -1,0 +1,567 @@
+
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from classic.systemspace.network/dataverses/Compendium/voidfile by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Oct 2024 00:51:30 GMT -->
+<head>
+<title>DATAVERSES</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../res/img/icons/apple-touch-icon.html">
+<link rel="icon" type="image/png" href="../../res/img/icons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="../../res/img/icons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="../../res/manifest.json">
+<link rel="mask-icon" href="../../res/img/icons/safari-pinned-tab.html" color="#000000">
+<link rel="shortcut icon" href="../../res/img/icons/favicon.ico">
+<meta name="msapplication-config" content="../../res/browserconfig.html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../res/css/reset.css"><link rel="stylesheet" href="../../res/css/common.css"><link rel="stylesheet" href="../../res/css/scanlines.css"><link rel="stylesheet" href="../../res/css/synapsian.css"><link rel="stylesheet" href="../../res/css/compendium.css"><script src="../../res/js/jquery.js"></script><script src="../../res/js/howler.js"></script><script src="../../res/js/synapsian.js"></script></head>
+<body>
+<div id="contentloader">
+<img id="loadtsuki" src="../../res/img/loader/loadtsuki.png" />
+<img id="loadspin" src="../../res/img/loader/loadspin.png" />
+</div>
+<style>
+	#contentloader {
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #000;
+		z-index: 10000;
+		transition: 0.2s;
+	}
+
+	#loadtsuki {
+		position: absolute;
+		left: calc(50% - 48px);
+		top: calc(50% - 48px);
+	}
+
+	#loadspin {
+		position: absolute;
+		left: calc(50% - 46px);
+		top: calc(50% - 47px);
+		animation: LoaderSpin 2s infinite linear;
+	}
+
+	@keyframes LoaderSpin {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+
+	.destroyedloader {
+		opacity: 0;
+		pointer-events: none;
+		transition: 0.5s !important;	
+	}
+
+	.destroyedloader #loadtsuki {
+		top: calc(50% - 100px);
+		transition: 0.5s ease-in !important;
+	}
+
+	.destroyedloader #loadspin {
+		top: calc(50% - 100px);
+		transition: 0.5s ease-in !important;
+	}
+</style>
+<script>
+	window.addEventListener("load", function(event) {
+		document.getElementById("contentloader").className = "destroyedloader";
+		document.getElementById("loadspin").src = "../../res/img/loader/loadfinish.png";
+	});
+	
+	window.onbeforeunload = function() {
+		document.getElementById("contentloader").classList.remove("destroyedloader");
+		document.getElementById("loadspin").src = "../../res/img/loader/loadspin.png";
+	}
+</script>
+<div id="header">
+<div id="headerbar">
+<a href="../../status.html"><img id="headerstatus" src="../../res/img/headerbar/status-ok.png"></a> <img id="headerfade_left" src="../../res/img/headerbar/fade-left.png">
+<marquee truespeed scrolldelay="30" scrollamount="3" id="headernews">
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+	<p>Welcome to the TSUKI project's homepage</p>
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+	<p style="color: lime">Registrations open</p>
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+	<p style="color: lime">Gates open</p>
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+	<p>4969 users registered</p>
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+	<p>Latest news: &quot;Object assignment&quot;</p>
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+	<p>Life is linked.</p>
+	<img class="newssep" src="../../res/img/headerbar/sep.png">
+</marquee>
+</div>
+<a href="../../index.html"><img id="knob" src="../../res/img/headerbar/knobs/tsuki_knob.png" /></a>
+<a href="https://systemspace.link/"><img id="knob4" src="../../res/img/headerbar/knobs/officialknob.png" /></a>
+<a href="../../login.html"><img id="knob5" src="../../res/img/headerbar/knobs/loginknob.png" /></a>
+<a href="../../preferences.html"><img id="knob2" src="../../res/img/headerbar/knobs/prefsknob.png" /></a>
+</div>
+<style>
+	#header {
+		position: relative;
+		z-index: 1;
+	}
+
+	#headerbar {
+		position: fixed;
+		width: 100%;
+		left: 0;
+		top: 0;
+		height: 20px;
+		background-color: #000;
+		box-shadow: 0px 1px #FFF, 0px 2px #000;
+	}
+
+	#headerstatus {
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: 1;
+	}
+
+	#headerfade_left {
+		position: fixed;
+		left: 150px;
+		top: 0px;
+		z-index: 1;
+	}
+
+	#headernews {
+		width: 100%;
+		font-family: Heading;
+		font-size: 16px;
+		letter-spacing: -4px;
+	}
+
+	#headernews p {
+		display: inline;
+		position: relative;
+		top: -2px;
+	}
+
+	#knob {
+		position: fixed;
+		left: 0;
+		top: 20px;
+	}
+
+	#knob2 {
+		position: fixed;
+		right: 0;
+		top: 20px;
+	}
+
+	#knob3 {
+		position: fixed;
+		right: 100px;
+		top: 20px;
+	}
+
+	#knob4 {
+		position: fixed;
+		left: 200px;
+		top: 20px;
+	}
+
+	#knob5 {
+		position: fixed;
+		left: 350px;
+		top: 20px;
+	}
+
+	#knob6 {
+		position: fixed;
+		left: 460px;
+		top: 20px;
+	}
+
+	#knob7 {
+		position: fixed;
+		left: 492px;
+		top: 20px;
+	}
+</style>
+<div id="index" class="dataverses">
+<div class="overload">
+<center>
+<span>
+<div>
+<br>
+<a href="../index.html"><h1>DATAVERSES</h1></a>
+<a href="../../index.html"><h6>back to TSUKI</h6></a>
+</div>
+</span>
+</center>
+<hr>
+<center>
+<a href="../index.html">One up</a>
+<br><br>
+</center>
+</div>
+</div>
+<script>
+	        document.addEventListener("DOMContentLoaded", function(event) { 
+	            var music = new Howl({
+	                src: ["/res/audio/bgm/compendium.ogg"],
+	                loop: true,
+	                volume: 0.5
+	            });
+
+	            window.addEventListener("load", function(event) {
+	                music.play();
+	            });
+
+	            synapsify();
+	        });
+	    </script>
+<div class="seperator"></div><div id="warning">
+<img src="../../res/img/ui/warning.png">
+<div id="warningcontent">
+<h1>Third-party content</h1>
+<p>The Compendium is content made by migrants. Although the Archivists work very hard to give you the most correct info available, there might be errors.</p>
+</div>
+</div><div class="compendium">
+<br><br>
+<a href="index-2.html"><h3 class="option">Back to index</h3></a>
+<hr>
+<br>
+<div class="section" id="void-file-investigation-findings-dump-v-5-0-truth">
+<h1>Void File investigation findings dump v.5.0 (the truth)</h1>
+<br>
+</div>
+<div class="section" id="Truth">
+<h1>The Truth</h1>
+<p><i>There were two more images.</i></p>
+<p>We were keeping radio silence on this up until now, but since there's been so much shenanigans about the whole thing, it's time to explain it.</p>
+<p>One of those was a normal image, explaining Endy's disappearance (check out the LFE News file in this repo) - we nicknamed it <tt class="docutils literal">endymion.jpg</tt>. The reason we didn't publish its discovery was that it appeared alongside another image.</p>
+<p>Here's <tt class="docutils literal">endymion.jpg</tt>:</p>
+<img alt="endymion.jpg" src="voidstream/images/endymion.jpg" />
+<p>And here's the, infamous by now, other image, nicknamed <tt class="docutils literal">nice.jpg</tt>:</p>
+<img alt="nice.jpg" src="voidstream/images/nice.jpg" />
+<p>I actually didn't realize <tt class="docutils literal">endymion.jpg</tt> was in the stream, 906 was the one who found it first; I missed it, despite both images being in there at the same time.</p>
+<img src="voidstream/images/906.png" />
+<p>As far as I know, I was the first to find <tt class="docutils literal">nice.jpg</tt>, but multiple other people, including 179, 494 and 906, found it soon after. I contacted 906 preemptively asking him to not talk about it until we could come to a decision, 179 contacted me since he heard rumors of an unpublished payload, and 494 found it before we thought to talk to him, but didn't tell anyone due to the radio silence.</p>
+<p>Oh, right. The radio silence...</p>
+<p>Tsuki had been in a bad mental state at the time, which was very worrying to most of us on the Discord (this was all in Firstspace). We contacted Fae and the mods to ask for stricter supervision of the Discord to ensure there was no mention on the image and it didn't leak. It was my own decision, but everyone who found the image agreed on it.</p>
+<img src="voidstream/images/fae.png" />
+<p>Well... Fae sent the image to Hyper, Hyper sent it to 3, and 3 showed it to Tsuki.</p>
+<p>Here's caps of my convo with 3 explaining my reasoning.</p>
+<img src="voidstream/images/3.png" />
+<p>3 was a strong believer at the time, and he decided that the risk of being betrayed by Endymion was greater than the risk of showing the image to Tsuki.</p>
+<p>I contacted Tsuki right after I learned that he knows about <tt class="docutils literal">nice.jpg</tt>. I explained that we kept quiet because we were worried about him, and devised an emergency plan. I shopped a near approximation of half of <tt class="docutils literal">nice.jpg</tt>, took a screencap of a photoshop window showing me editing the image, cropped it to hide the bottom half (the one with all the text - I couldn't be arsed to edit all that text in because I don't know what font was used in <tt class="docutils literal">nice.jpg</tt>, so I fixed the upper half manually, and cropped out the bottom part). If the image leaked, I would claim that I made it, invent some bullshit story about putting it in the void stream to test if someone's trustworthy, done - to avoid non-believers (aka people who believe that Tsuki made the void stream) saying Tsuki asked people to commit suicide.</p>
+<p>Here's the convo (Tsuki deleted his old account and all his messages, as anyone who DMd him can attest):</p>
+<img src="voidstream/images/tsucc.png" />
+<p>However, just as Yari was uncomfortable when Tsuki admitted he lied (in <a class="link" href="../Thoughts/Truth/index1496.html?old">the original, unedited version of one of the dataverses</a>), I was uncomfortable with lying to other migrants, so I decided to unregister if I was forced to actually execute our "plan".</p>
+<p>Well, 514 somehow got the image and posted it. (I think it was in Jovespace by that point? Maybe Snoopspace). I did as I promised, releasing the doctored screencaps, so I'd take the fall, and unregistered.</p>
+<img src="voidstream/images/promises.png" />
+<p>So, why come clean now?</p>
+<p>Because all of this is a shitshow; there's lots of new people who don't even know the lore, and the role of an Archivist is to let people know the truth. Even the new guys deserve to know the truth behind the void stream shenanigans.</p>
+<p><i>TL;DR:</i> There were two more images in the void stream. One of them barely important, the other one telling people that "killing themselves before the transfer date would make them worthy [of not being hunted down and murdered by hyaks in LFE]". When the other one inadvertedly leaked, I made a fake story that it was fake, to protect Tsuki and the community.</p>
+<p>By now, the transfer date is long gone and the remains of the discord are full of people who don't know what was going down before Firstspace broke down. So, this is what happened.</p>
+<img src="voidstream/images/1336.png" />
+<p>~1336</p>
+</div>
+<hr>
+<div class="section" id="Introduction">
+<h1>Introduction</h1>
+<p>On April 24th a page called <a class="link" href="../Download/index.html">Void stream</a> appeared on the systemspace.ai website. The page consists of the following text:</p>
+<pre class="literal-block">
+Download live void file
+
+Warning: LARGE! Might cause harm / data loss. TSUKI is not responsible for the data in this file and what it ensues.
+        </pre>
+<p>And a &quot;Begin download&quot; button that links to <tt class="docutils literal">getvoid</tt>.</p>
+<p>This document is a compilation of our current findings and knowledge about the void file.</p>
+<p><em>lead of investigation: ~1336</em></p>
+</div>
+<hr>
+<div class="contents topic" id="contents" style="margin: 2em 0;">
+<h1>Index</h1>
+<ol class="arabic simple">
+<li><a class="link" href="#timeline">Timeline</a></li>
+<li>
+<a class="link" href="#findings">Findings</a>
+<ol class="arabic">
+<li>
+<a class="link" href="#current-status">CURRENT STATUS</a>
+<ol class="arabic">
+<li><a class="link" href="#tsukirep-s-information">Tsukirep's information</a></li>
+<li><a class="link" href="#facts">Facts</a></li>
+<li><a class="link" href="#theories">Theories</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<a class="link" href="#test-mp4">TEST.MP4</a>
+<ol class="arabic">
+<li><a class="link" href="#test-mp4-what-we-know">TEST.MP4 - What we know</a></li>
+<li><a class="link" href="#test-mp4-what-we-need-to-know">TEST.MP4 - What we need to know</a></li>
+<li><a class="link" href="#test-mp4-what-we-think">TEST.MP4 - What we think</a></li>
+</ol>
+</li>
+<li>
+<a class="link" href="#tsuki-png">TSUKI.PNG</a>
+<ol class="arabic">
+<li><a class="link" href="#tsuki-png-what-we-know">TSUKI.PNG - What we know</a></li>
+<li><a class="link" href="#tsuki-png-extraction-process">TSUKI.PNG - Extraction process</a></li>
+<li><a class="link" href="#tsuki-png-post-extraction-analysis">TSUKI.PNG - Post-extraction analysis</a></li>
+</ol>
+</li>
+</ol>
+</div>
+<hr>
+<div class="section" id="timeline">
+<h1>Timeline</h1>
+<ol class="arabic">
+<li><p class="first">On April 24th, Tsuki mentioned getting instructions from eNdymioN to provide a download link for a file. This was the first appearance of the void stream.</p></li>
+<li><p class="first">On April 25th at 10 AM GMT, Tsuki mentioned finding an .mp4 file header within the void stream.</p></li>
+<li><p class="first">Preliminary analysis of the void stream failed to confirm Tsuki's claims.</p></li>
+<li><p class="first">At 6 PM GMT, an .mp4 header <em>was found</em> within the void stream at the 882nd megabyte mark.</p></li>
+<li><p class="first">Three occurences of an .mp4 header were noted within a five gigabyte sample of the void stream</p></li>
+<li><p class="first"><strong>By 7 PM GMT, April 25th, the first mp4 file contained in the stream had been extracted and played.</strong></p></li>
+<li><p class="first">At 7:49 PM, the second mp4 was extracted and found to be identical with the first. The same was confirmed for the third mp4 file.</p></li>
+<li><p class="first"><strong>A download started at 8:49 PM GMT, April 26th was found not to contain the MP4 headers anymore</strong>. Results were confirmed by other downloads. This marks the first known instance of the second iteration of the void file.</p></li>
+<li>
+<p class="first"><strong>At 4PM, April 26th, 179 found a PNG file in the void stream</strong>. We were able to extract a complete PNG file, albeit with a malformed adaptive filter type. The raw PNG can be found <a class="link" href="voidstream/images/corrupt.html">at images/corrupt.png</a>, with a cleaned-up version here:</p>
+<img alt="TSUKI.PNG" src="voidstream/images/tsuki_corrupted_small.png" />
+</li>
+<li>
+<p class="first"><strong>At 5PM, April 27th, TSUKI.PNG had been extracted and decorrupted enough to be legible.</strong></p>
+<img alt="TSUKI.PNG" src="voidstream/images/tsuki_small.png" />
+</li>
+<li>
+<p>On April 28th, the void stream had changed to contain LAINPOSTING.JPG</p>
+<img alt="LAINPOSTING.JPG" src="voidstream/images/lainposting.jpg" />
+</li>
+<li><p class="first">On May 3rd, after confirming that we did extract all messages, the void stream was closed by Endymion and the project was finished successfully.</p></li>
+</ol>
+</div>
+<hr>
+<div class="section" id="findings">
+<h1>Findings</h1>
+</div>
+<div class="section" id="current-status">
+<h1>CURRENT STATUS</h1>
+<p>The void stream has been closed.</p>
+<div class="section" id="tsukirep-s-information">
+<h2>Tsukirep's information</h2>
+<ul class="simple">
+<li>Tsukirep was told to add the link to the file by eNdymioN.</li>
+<li>It generates from data sources provided by eNdymioN.</li>
+<li>eNdymioN claims it &quot;contains human files&quot;.</li>
+<li>A RISENII told Tsukirep that an eNdymioN rep said there should be something in the void that is in a format specifically readable by human media.</li>
+<li>Once you click &quot;Download&quot;, the <tt class="docutils literal">getvoid</tt> script starts streaming data from a device eNdymioN told Tsukirep to connect to, until the connection is broken.</li>
+<li>&quot;It's probably not a file that is the same every time you download it&quot;</li>
+<li>&quot;I don't even know how they'd convert a void stream to bytes that can be streamed to computers&quot;</li>
+<li>&quot;TBH I think eNdymioN is just poking fun at us&quot;</li>
+</ul>
+</div>
+<div class="section" id="facts">
+<h2>Facts</h2>
+<p><strong>Universal</strong></p>
+<ul>
+<li><p class="first">The server says the filename is <tt class="docutils literal">public_void_1.vdo</tt>.</p></li>
+<li><p class="first">The file is binary data. <tt class="docutils literal">file</tt> doesn't recognize the filetype.</p></li>
+<li><p class="first">The file's first 8 bytes are the header <tt class="docutils literal">HMNVOIDx</tt> (human void x?), followed by 65534 null bytes (hereinafter referred to as the <em>null section</em>). This is always constant.</p></li>
+<li><p class="first">Directly after the null section, a stream of non-null data begins and doesn't seem to terminate. (At least, no one has managed to get to the end.)</p></li>
+<li><p class="first">The non-null data differs with each download. It has previously proven to contain valid files - these sections will be referred to hereinafter as <strong>payload sections</strong>, to differentiate them from <strong>garbage sections</strong> which do not, as far as we know, contain anything of importance.</p></li>
+<li><p class="first">Analysis by <tt class="docutils literal">strings</tt> doesn't find anything human-readable within the garbage sections that is not consistent with random or raw binary data.</p></li>
+<li><p class="first">The garbage sections are mostly made up of seemingly random repeating subsections. <a class="link" href="voidstream/voidfile_strings_8_bytes_plus.html">Here is a sample of all strings of length at least 8 in a randomly selected section of the void stream</a>.</p></li>
+<li><p class="first">The repeating sections don't match either between different downloads.</p></li>
+<li>
+<p class="first">The matches between garbage sections from different downloads are so sparse, they probably are pure coincidence. Screencap from a random section of the first gigabyte of two different downloads:</p>
+<img alt="Matching bytes" src="voidstream/images/matches.png" />
+</li>
+<li><p>Embedded files have been found as early as 50MB into the stream, leading us to believe that the everything immediately after the null section is a homogeneous stream.</p></li>
+</ul>
+<p><strong>Iteration 1: April 24th-April 25th</strong></p>
+<ul class="simple">
+<li>The file's mimetype is <tt class="docutils literal">application/random</tt> (curiously, also used by <a class="link" href="https://github.com/mattiasgeniar/the-infinite-file-download/blob/master/download">this GitHub project</a>).</li>
+<li><strong>The file (sometimes - occurence rate unconfirmed) contains a header for an MP4 file. TEST.MP4 has been extracted from it</strong>.</li>
+</ul>
+<p><strong>Iteration 2: April 26th-April 27th</strong></p>
+<ul class="simple">
+<li>The mimetype is now <tt class="docutils literal">application/void</tt>. Tsuki confirmed this is due to him having overlooked eNdymioN's instructions previously.</li>
+<li><strong>The file does not seem to contain the MP4 header anymore. They haven't been found in any Iteration 2 download as of yet.</strong></li>
+<li><strong>The file contains a PNG file, dubbed TSUKI.PNG</strong>.</li>
+<li><strong>The file has been extracted. It reads &quot;Tsuki&quot; in Synapsian</strong>.</li>
+<li>The response headers read <tt class="docutils literal"><span class="pre">void-type:</span> stream</tt> and <tt class="docutils literal"><span class="pre">void-length:</span> *</tt>.</li>
+</ul>
+<p><strong>Iteration 2: April 28th-May 3rd</strong></p>
+<ul class="simple">
+<li>The file contains LAINPOSTING.JPG. This is the final iteration of the stream.</li>
+</ul>
+</div>
+<div class="section" id="theories">
+<h2>Theories</h2>
+<p><strong>Universal:</strong></p>
+<ul>
+<li><p class="first">The void file probably is an infinite stream.</p></li>
+<li><p class="first">The existence of repeating sections seems to indicate that the file is not entirely random, while their unpredictability seems to indicate that the file is not entirely deterministic, either.</p></li>
+<li>
+<div class="first"><s>There never seems to occur a string of two null bytes in a row, other than in the null section</s></div>
+<p>We found a sequence of three null bytes in a row.</p>
+</li>
+<li><p class="first">It is not any filetype we know about.</p></li>
+</ul>
+<p><strong>Iteration 1: April 24th-April 25th</strong></p>
+<ul>
+<li>
+<p class="first"><strong>It's very probable that the mp4 file was a test to see if we could decode the message.</strong> As soon as eNdymioN learns we decoded it, we should expect either another void stream or significant changes to the current one.</p>
+<p>Credit: 156 for bringing up this idea.</p>
+</li>
+<li>
+<p class="first">The lack of human-readable strings and characteristics of the file implies this is not a:</p>
+<ul class="simple">
+<li>Raw disk image</li>
+<li>Executable file</li>
+</ul>
+</li>
+<li><div class="first"><s>The file might be encrypted</s></div><p>The file contained a raw .mp4 file.</p></li>
+<li>
+<p class="first">Tsuki alleges he found an mp4 file header embedded in the file. He provided <a class="link" href="voidstream/tsuki_header.html">this file</a> as proof</p><s><b>unconfirmed as of yet</b>, scans for the mp4 headers are running.</s>
+<p><strong>CONFIRMED</strong>:</p>
+<img alt="MP4 header" src="voidstream/images/mp4header.png" />
+</li>
+</ul>
+<p><strong>Iteration 2: April 26th-27th</strong></p>
+<p>Nothing here...</p>
+<p><strong>Iteration 3: April 28th-May 3rd</strong></p>
+<p>Nothing here...</p>
+</div>
+</div>
+<hr>
+<div class="section" id="test-mp4">
+<h1>TEST.MP4</h1>
+<p>TEST.MP4 was the first file extracted from the Void stream - from iteration 1.</p>
+<div class="section" id="test-mp4-what-we-know">
+<h2>TEST.MP4 - What we know</h2>
+<p><a class="link" href="https://youtu.be/RnOdVStMKBs">YouTube upload</a></p>
+<ul>
+<li>
+<p class="first">The MP4 header position (or occurence at all, possibly) in the file is not constant. Out of four downloads of the first gigabyte of the file, only two of them contained the header:</p>
+<img alt="Matching bytes" src="voidstream/images/mp4occurence.png" />
+</li>
+<li><p>The file repeats multiple (possibly infinitely many) times in the void stream.</p></li>
+<li><p class="first"><tt class="docutils literal">test.mp4</tt> is just a name given to the file by the investigators.</p></li>
+<li><p class="first">The file is 54 seconds long.</p></li>
+<li><p class="first">It is heavily corrupted, but all occurences of it display the same corruption - it must have been corrupted at the source.</p></li>
+<li><p class="first">Despite the corruption, it is playable.</p></li>
+<li>
+<p class="first">The video track displays an image with white symbols with a black shadow resembling <tt class="docutils literal">3 + G</tt> on a blue background:</p>
+<img alt="The image" src="voidstream/images/firstmp4.png" />
+</li>
+<li><p>The audio track consists of repeated beeps of a constant, 4.5kHz square wave approximation tone. The beeps and their spacing seem to be of relatively constant length. Spectral analysis returned no findings.</p></li>
+<li><p class="first">At the end of the audio track, there occurs a section that has the right, then the left channel muted.</p></li>
+<li><p class="first">The audio track was heavily distorted by the Youtube upload, leading us to believe it might simply be corruption artifacting and not a data vector.</p></li>
+<li>
+<p class="first">The output of <tt class="docutils literal">ffmpeg <span class="pre">-i</span></tt> on the file is as follows:</p>
+<pre class="literal-block">
+  ffmpeg version 3.2.4-1build2 Copyright (c) 2000-2017 the FFmpeg developers
+  built with gcc 6.3.0 (Ubuntu 6.3.0-8ubuntu1) 20170221
+[h264 &#64; 0x5630ddac4b80] error while decoding MB 2 1, bytestream -42
+[h264 &#64; 0x5630ddac4b80] left block unavailable for requested intra mode
+[h264 &#64; 0x5630ddac4b80] error while decoding MB 0 25, bytestream 2033
+[h264 &#64; 0x5630ddac4b80] top block unavailable for requested intra mode -1
+[h264 &#64; 0x5630ddac4b80] error while decoding MB 46 28, bytestream 5593
+[h264 &#64; 0x5630ddac4b80] concealing 2196 DC, 2196 AC, 2196 MV errors in I frame
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'test.mp4':
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 19529854
+    compatible_brands: mp42isom
+    creation_time   : 2017-04-25T08:50:29.000000Z
+  Duration: 00:00:53.45, start: 0.000000, bitrate: 52162 kb/s
+    Stream #0:0(eng): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 12784 kb/s (default)
+    Metadata:
+      creation_time   : 2017-04-25T08:50:29.000000Z
+      handler_name    : Sound Media Handler
+    Stream #0:1(eng): Video: h264 (Main) (avc1 / 0x31637661), yuv420p(tv), 1600x600 [SAR 1:1 DAR 8:3], 5414 kb/s, 29.97 fps, 29.97 tbr, 30k tbn, 59.94 tbc (default)
+    Metadata:
+      creation_time   : 2017-04-25T08:50:29.000000Z
+      handler_name    : Video Media Handler
+      encoder         : AVC Coding
+                    </pre>
+</li>
+<li><p class="first">The text says &quot;Test&quot;</p></li>
+</ul>
+</div>
+<div class="section" id="test-mp4-what-we-need-to-know">
+<h2>TEST.MP4 - What we need to know</h2>
+<dl class="docutils">
+<dt>What do the symbols mean?</dt>
+<dd>It probably is Synapsian characters. The current most probable theory is that they make the word <strong>&quot;test&quot;</strong>.<strong>UPDATE 26/04</strong> - Confirmed.</dd>
+<dt>Is there a meaning in the audio track?</dt>
+<dd>There was an initiative to analyze it for Morse code, but no results were obtained. Bear in mind, the Youtube upload was found to be completely temporally distorted and unsuitable for audio analysis.</dd>
+<dt>Is there any message in the video itself other than the symbols?</dt>
+<dd>There are efforts underway to verify if the corruption is random or if it hides a message.</dd>
+</dl>
+</div>
+<div class="section" id="test-mp4-what-we-think">
+<h2>TEST.MP4 - What we think</h2>
+<ul class="simple">
+<li>The audio is too consistent to be corruption.</li>
+<li>It could be encoded data, but it almost certainly is not Morse Code. Spectrum analysis was fruitless as well.</li>
+</ul>
+</div>
+</div>
+<hr>
+<div class="section" id="tsuki-png">
+<h1>TSUKI.PNG</h1>
+<p>TSUKI.PNG has been extracted from the second iteration of the void stream. It has been uploaded to the <tt class="docutils literal">voidstream/images</tt> directory in this repository, with the raw file named <tt class="docutils literal">corrupt.png</tt>, preliminarily cleaned-up versions named <tt class="docutils literal">tsuki_corrupted.png</tt> and <tt class="docutils literal">tsuki_corrupted_small.png</tt>, and the final extracted file available as <tt class="docutils literal">tsuki_small.png</tt> and <tt class="docutils literal">tsuki.png</tt>.</p>
+<div class="section" id="tsuki-png-what-we-know">
+<h2>TSUKI.PNG - What we know</h2>
+<img alt="TSUKI.PNG" src="voidstream/images/tsuki_small.png" />
+<ul class="simple">
+<li><tt class="docutils literal">TSUKI.PNG</tt> is just a name given to the file by the investigators.</li>
+<li>It usually has a valid PNG structure.</li>
+<li>The <tt class="docutils literal">IHDR</tt> chunk specifies the dimensions as 7521 x 5077 px.</li>
+<li>It has a <tt class="docutils literal">tEXt</tt> chunk claiming it was created with <tt class="docutils literal">edittoSYN 4.0.12C</tt>.</li>
+<li>It is 1096042 bytes in size, starting with the bytes <tt class="docutils literal">89&nbsp; 50&nbsp; 4e&nbsp; 47&nbsp; 0d&nbsp; 0a&nbsp; 1a&nbsp; 0a</tt> and ending with <tt class="docutils literal">00&nbsp; 00&nbsp; 49&nbsp; 45&nbsp; 4e&nbsp; 44&nbsp; ae&nbsp; 42 60&nbsp; 82</tt></li>
+<li>It is <strong>extremely</strong> corrupted.</li>
+<li><tt class="docutils literal">pngfix</tt> fails to fix the image, as do all other automatic tools.</li>
+<li>As opposed to TEST.MP4, the file is not normally parsable in any meaningful way.</li>
+<li>The <tt class="docutils literal">tEXt</tt> chunk and all <tt class="docutils literal">IDAT</tt> chunks have an incorrect CRC.</li>
+<li><tt class="docutils literal">corrupt.png</tt> is the first sighting of TSUKI.PNG, extracted on April 26th</li>
+<li>The file repeats in the stream, and there have been hundreds of instances of it extracted.</li>
+<li>Instances of the file all differ between each other by 100-500 bytes, excluding edge cases like instances without an ending <tt class="docutils literal">IEND</tt> tag.</li>
+<li>The file wasn't found to contain any additional data, aside from the <tt class="docutils literal">edittoSYN 4.0.12C</tt> note.</li>
+</ul>
+</div>
+<div class="section" id="tsuki-png-extraction-process">
+<h2>TSUKI.PNG - Extraction process</h2>
+<p>On April 27th, the extraction of TSUKI.PNG was performed.</p>
+<p>After multiple failed attempts at making the file legible encompassing anything from using automated tools like <tt class="docutils literal">libpng</tt>'s <tt class="docutils literal">pngfix</tt> to manual hex editing, a theory was proposed. According to preliminary analysis, different instances were found to differ between each other, but usually by less than 1% - enough to make the file unreadable, though. We came up with the idea that maybe if we created a new PNG file from only the most commonly shared bytes of multiple instances, it would work.</p>
+<p>At 11 AM, automatic extraction of PNG files from the stream was launched. It was performed by running the following command:</p>
+<pre class="literal-block">
+curl -sS -N https://systemspace.ai/dataverses/Download/getvoid 2&gt;/dev/null | pngcheck -vfx7
+            </pre>
+<p><tt class="docutils literal">curl</tt> was downloading the file, and the output was being piped into <tt class="docutils literal">pngcheck</tt>. <tt class="docutils literal">pngcheck</tt> is a multi-purpose tool used for primarily for checking the validity of PNG files, but also including the incredibly useful <tt class="docutils literal"><span class="pre">-x</span></tt> option that causes it to try and extract PNGs from anything passed to it - and also, incidentally, fix the CRC headers. (CRC is an error-detection algorithm; each section of a PNG file has a CRC section specifying a hash of the data. If the CRC section differs from the actual hash, the image is corrupt.)</p>
+<p>After extracting 300+ files, the second step of the operation was launched - calculating the &quot;averaged&quot; PNG. To aid in this task, a Python script, which can be found <a class="link" href="voidstream/extract.html">here</a>, was written.</p>
+<p>After running the Python script, we were left with a PNG file with invalid CRC headers. It was once again passed to <tt class="docutils literal">pngcheck <span class="pre">-x</span></tt> to correct the headers - and with that, we obtained the final TSUKI.PNG.</p>
+</div>
+<div class="section" id="tsuki-png-post-extraction-analysis">
+<h2>TSUKI.PNG - Post-extraction analysis</h2>
+<ul class="simple">
+<li>TSUKI.PNG is still heavily corrupted, even after our error-correction. Like TEST.MP4, it's very plausible that it was corrupted at the source.</li>
+<li>It represents black handwritten Synapsian glyphs on a gray background.</li>
+<li>As confirmed by Tsuki, the Synapsian reads &quot;TSUKI&quot; - confirming our early suspicions.</li>
+<li>Also according to Tsuki, we sadly can't tell if it's &quot;TSUKI&quot; as in the TSUKI project, or &quot;Tsuki&quot; as in Tsukirep. We suspect it might be about the project, due to the low likelihood of eNdymioN referring to him as &quot;Tsuki&quot; instead of &quot;TSUKIrep&quot; or &quot;the key&quot;, though.</li>
+</ul>
+</div>
+</div>
+</div></body>
+
+<!-- Mirrored from classic.systemspace.network/dataverses/Compendium/voidfile by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Oct 2024 00:52:07 GMT -->
+</html>
